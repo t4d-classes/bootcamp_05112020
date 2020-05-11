@@ -1,4 +1,7 @@
-
+:root {
+  font-size: 100%;
+  font-family: arial;
+}
 
 .page-layout {
 
@@ -19,6 +22,13 @@
 
 #page-header {
   grid-area: header;
+  background-color: navy;
+  color: white;
+  padding: 20px;
+}
+
+#page-header h1 {
+  font-size: 1.8rem;
 }
 
 #main-menu {
@@ -47,23 +57,31 @@
   grid-area: content;
 }
 
+#content > header {
+  background-color: gray;
+  color: white;
+  padding: 10px;
+}
+
+#content > section {
+  padding: 10px;
+}
+
 #sidebar {
   grid-area: sidebar;
+  background-image: url(../images/sidebar/home-sidebar.jpg);
+  background-size: cover;
 }
 
 #page-footer {
   grid-area: footer;
+  background-color: navy;
+  color: white;
+  text-align: center;
+  padding-top: 20px;
 }
 
-.container {
-  width: 500px;
-  border: 2px solid red;
-  overflow: auto;
+#page-footer > small {
+  font-size: 0.8rem;
 }
 
-.container div {
-  border: 2px solid green;
-  float: left;
-  width: 25%;
-  box-sizing: border-box;
-}
