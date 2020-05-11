@@ -2,8 +2,8 @@
 
 ## Instructor Information
 
-Name: Eric Greene
-Email: eric@t4d.io
+- Name: Eric Greene
+- Email: eric@t4d.io
 
 ## Daily Schedule
 
