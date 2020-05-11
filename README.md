@@ -58,6 +58,24 @@ npm start
 
 5. Open the editor of your choice and edit the files.
 
+## Configuration for HTML/CSS/JavaScript part of the class.
+
+In the `www` folder, create a new file named `serve.json`. Add the following contents to the file.
+
+```json
+{
+  "cleanUrls": false
+}
+```
+
+To run the web site, open a terminal window, change to the `www` folder, and run the following command:
+
+```bash
+npx serve .
+```
+
+Open a web browser, and navigate to `http://localhost:5000/index.html`
+
 ## Configuration and Data for the REST API part of the class
 
 Here is the `scripts` configuration which can be copied and pasted for the REST API portion of the class. When asked by the instructor, replace the `scripts` section of the `package.json` file in the `demo-app` project with the `scripts` section below.
