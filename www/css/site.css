@@ -24,11 +24,21 @@
   grid-area: header;
   background-color: navy;
   color: white;
-  padding: 20px;
+  padding: 16px;
 }
 
 #page-header h1 {
+  display: flex;
   font-size: 1.8rem;
+  align-items: center;
+}
+
+#page-header h1 img {
+  height: 1.8rem;
+}
+
+#page-header h1 * {
+  margin: 4px;
 }
 
 #main-menu {
