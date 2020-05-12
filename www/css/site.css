@@ -79,7 +79,6 @@
 
 #sidebar {
   grid-area: sidebar;
-  background-image: url(../images/sidebar/home-sidebar.jpg);
   background-size: cover;
 }
 
