@@ -11,3 +11,7 @@
 5. Create a Car Form to collect new car data. Display input fields for make, model, year, color and price. Use a number type field for year and price.
 
 6. Ensure it works.
+
+Bonus
+
+Apply some styling to Color Tool and Car Tool.
