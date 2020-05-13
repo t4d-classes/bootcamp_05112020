@@ -11,9 +11,9 @@ const config = {
 };
 
 
-const colors = [
-  { id: 1, name: 'red', hexcode: '#FF0000' },
-  { id: 2, name: 'blue', hexcode: '#0000FF' },
+const cars = [
+  { id: 1, make: 'Ford', model: 'Fusion Hybrid', year: 2020, color: 'blue', price: 45000 },
+  { id: 2, make: 'Tesla', model: 'S', year: 2019, color: 'red', price: 125000 },
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
