@@ -1,0 +1,9 @@
+import React from 'react';
+
+export const Layout = () => {
+
+  return <>
+    <h1>Hello World!</h1>
+    <span>test</span>
+  </>;
+};
