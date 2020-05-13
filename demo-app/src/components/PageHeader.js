@@ -1,8 +1,8 @@
 import React from 'react';
 
-import './ToolHeader.css';
+import './PageHeader.css';
 
-export const ToolHeader = () => {
+export const PageHeader = () => {
 
   return (
     <header id="page-header">

@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { ToolHeader } from './ToolHeader';
+import { PageHeader } from './PageHeader';
+import { PageFooter } from './PageFooter';
 
 import './Layout.css';
 
@@ -8,11 +9,9 @@ export const Layout = () => {
 
   return <div className="page-layout">
 
-    <ToolHeader />
+    <PageHeader />
 
-    {/*<footer id="page-footer">
-      <small>&copy; 2020 Cool Company, Inc. All Rights Reserved.</small>
-    </footer>*/}
+    <PageFooter />
 
   </div>;
 };

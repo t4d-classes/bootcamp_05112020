@@ -1,0 +1,11 @@
+#page-footer {
+  grid-area: footer;
+  background-color: navy;
+  color: white;
+  text-align: center;
+  padding-top: 20px;
+}
+
+#page-footer > small {
+  font-size: 0.8rem;
+}
