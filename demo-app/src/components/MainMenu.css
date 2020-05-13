@@ -1,0 +1,21 @@
+#main-menu {
+  grid-area: menu;
+  position: relative;
+}
+
+#main-menu ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 0; right: 0;
+}
+
+#main-menu ul li {
+  padding: 2px;
+  margin: 2px;
+  box-sizing: border-box;
+}
