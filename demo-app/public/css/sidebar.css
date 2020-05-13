@@ -1,3 +1,7 @@
 #sidebar.home-page {
   background-image: url(../images/sidebar/home-sidebar.jpg);
 }
+
+#sidebar.about-page {
+  background-image: url(../images/sidebar/about-sidebar.jpg);
+}

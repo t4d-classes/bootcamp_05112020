@@ -1,10 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {
+  BrowserRouter as Router,
+} from 'react-router-dom';
 
-import { Layout } from './components/Layout';
+import { App } from './components/App';
 
 ReactDOM.render(
-  // React.createElement(Layout),
-  <Layout />,
+  <Router>
+    <App />
+  </Router>,
   document.querySelector('#root'),
 );

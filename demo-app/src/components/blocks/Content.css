@@ -1,18 +1,18 @@
-#content.about-page {
+#content {
   grid-area: content;
 }
 
-#content.about-page > header {
+#content > header {
   background-color: gray;
   color: white;
   padding: 10px;
 }
 
-#content.about-page > section {
+#content > section {
   padding: 10px;
 }
 
-#sidebar.about-page {
+#sidebar {
   grid-area: sidebar;
   background-size: cover;
 }
