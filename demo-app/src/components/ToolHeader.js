@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+
+import './ToolHeader.css';
 
 export const ToolHeader = () => {
 
@@ -9,4 +11,4 @@ export const ToolHeader = () => {
       </h1>
     </header>
   );
-}
+};
