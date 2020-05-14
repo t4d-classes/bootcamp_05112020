@@ -5,7 +5,7 @@ export const useForm = (initialForm) => {
   const [
     form, // model data, state data
     setForm, // function which updates the model/state data, and triggers the re-render
-  ] = useState(initialForm);
+  ] = useState({ ...initialForm });
 
   const change = (e) => {
 
@@ -16,5 +16,5 @@ export const useForm = (initialForm) => {
     });
   };
 
-  return [ form, change, () => setForm(initialForm) ];
+  return [ form, change, () => setForm({ ...initialForm }) ];
 };
