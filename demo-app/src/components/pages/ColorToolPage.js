@@ -4,10 +4,10 @@ import { SectionHeader } from '../blocks/SectionHeader';
 
 import styles from './ColorToolPage.module.css';
 
-export const ColorToolPage = (props) => {
+export const ColorToolPage = ({ colors }) => {
 
-  // props.colors.push({ id: 4, name: 'purple', hexcode: '' });
-
+  // const colors = props.colors;
+  // const { colors } = props;
 
   return (
     <>
@@ -18,7 +18,7 @@ export const ColorToolPage = (props) => {
         </h3>
 
         <ul className={styles.colorList}>
-          {props.colors.map(c => <li key={c.id}>
+          {colors.map(c => <li key={c.id}>
             {c.name} - {c.hexcode}
           </li>)}
         </ul>

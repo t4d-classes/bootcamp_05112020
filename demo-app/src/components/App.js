@@ -35,7 +35,7 @@ export const App = () => {
               <AboutPage />
             </Route>
             <Route path="/color-tool">
-              <ColorToolPage colors={colorList} />
+              {/* React.createElement(ColorToolPage, { colors: colorList }) */}
               <ColorToolPage colors={colorList} />
             </Route>
           </Switch>
