@@ -12,6 +12,7 @@ import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { Content } from './blocks/Content';
 import { Sidebar } from './blocks/Sidebar';
+import { ColorToolPage } from './pages/ColorToolPage';
 
 export const App = () => {
 
@@ -27,14 +28,17 @@ export const App = () => {
             <Route path="/about">
               <AboutPage />
             </Route>
+            <Route path="/color-tool">
+              <ColorToolPage />
+            </Route>
           </Switch>
         </Content>
         <Switch>
-          <Route path="/" exact>
-            <Sidebar className="home-page" />
-          </Route>
           <Route path="/about">
             <Sidebar className="about-page" />
+          </Route>
+          <Route path="/">
+            <Sidebar className="home-page" />
           </Route>
         </Switch>
         <PageFooter />
