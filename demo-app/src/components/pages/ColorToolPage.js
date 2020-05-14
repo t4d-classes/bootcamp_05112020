@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { SectionHeader } from '../blocks/SectionHeader';
 
@@ -8,13 +8,24 @@ import colorToolPageStyles from './ColorToolPage.module.css';
 import { useForm } from '../../hooks/useForm';
 
 
-export const ColorToolPage = ({ colors }) => {
+export const ColorToolPage = ({ colors: initialColors }) => {
 
-  const [ colorForm, change ] = useForm({
+  const [ colorForm, change, resetColorForm ] = useForm({
     name: '', hexcode: '',
   });
 
-  console.log(colorForm);
+  const [ colors, setColors ] = useState(initialColors.concat());
+
+  const addColor = () => {
+
+    setColors(colors.concat({
+      ...colorForm,
+      id: Math.max(...colors.map(c => c.id), 0) + 1,
+    }));
+
+    resetColorForm();
+
+  };
 
   return (
     <>
@@ -50,7 +61,7 @@ export const ColorToolPage = ({ colors }) => {
               name="hexcode" value={colorForm.hexcode} onChange={change} />
           </div>
 
-          <button>Add Color</button>
+          <button type="button" onClick={addColor}>Add Color</button>
 
         </form>
       </section>
