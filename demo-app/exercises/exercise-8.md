@@ -4,7 +4,7 @@
 
 2. Create a new component named Car Table. Move the table of cars to the new component. Utilize the Car Table component within Car Tool.
 
-3. Create a new component named Car View Row. The Car View Row displays ONE row of car data. Utilize the Car View Row component in Car Table.
+3. Create a new component named Car View Row. The Car View Row displays ONE row of car data. Utilize the Car View Row component in Car Table to display the car data rows.
 
 4. Add a new column to the Car Table. The column should have a header labeled "Actions".
 
