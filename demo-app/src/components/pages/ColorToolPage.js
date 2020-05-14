@@ -2,22 +2,23 @@ import React from 'react';
 
 import { SectionHeader } from '../blocks/SectionHeader';
 
-export const ColorToolPage = () => {
+import styles from './ColorToolPage.module.css';
 
-  const colors = [
-    { id: 1, name: 'red', hexcode: '#FF0000' },
-    { id: 2, name: 'green', hexcode: '#00FF00' },
-    { id: 3, name: 'blue', hexcode: '#0000FF' },
-  ];
+export const ColorToolPage = (props) => {
+
+  // props.colors.push({ id: 4, name: 'purple', hexcode: '' });
+
 
   return (
     <>
       <SectionHeader headerText="Color Tool" />
       <section>
-        <h3>Color List</h3>
+        <h3 className={styles.contentSectionHeader}>
+          Color List
+        </h3>
 
-        <ul>
-          {colors.map(c => <li key={c.id}>
+        <ul className={styles.colorList}>
+          {props.colors.map(c => <li key={c.id}>
             {c.name} - {c.hexcode}
           </li>)}
         </ul>

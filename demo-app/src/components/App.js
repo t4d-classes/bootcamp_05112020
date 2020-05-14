@@ -14,6 +14,12 @@ import { Content } from './blocks/Content';
 import { Sidebar } from './blocks/Sidebar';
 import { ColorToolPage } from './pages/ColorToolPage';
 
+const colorList = [
+  { id: 1, name: 'red', hexcode: '#FF0000' },
+  { id: 2, name: 'green', hexcode: '#00FF00' },
+  { id: 3, name: 'blue', hexcode: '#0000FF' },
+];
+
 export const App = () => {
 
   return (
@@ -29,7 +35,8 @@ export const App = () => {
               <AboutPage />
             </Route>
             <Route path="/color-tool">
-              <ColorToolPage />
+              <ColorToolPage colors={colorList} />
+              <ColorToolPage colors={colorList} />
             </Route>
           </Switch>
         </Content>
