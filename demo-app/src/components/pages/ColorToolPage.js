@@ -6,9 +6,6 @@ import styles from './ColorToolPage.module.css';
 
 export const ColorToolPage = ({ colors }) => {
 
-  // const colors = props.colors;
-  // const { colors } = props;
-
   return (
     <>
       <SectionHeader headerText="Color Tool" />
@@ -22,6 +19,30 @@ export const ColorToolPage = ({ colors }) => {
             {c.name} - {c.hexcode}
           </li>)}
         </ul>
+      </section>
+
+      <section>
+        <h3 className={styles.contentSectionHeader}>
+          Color Form
+        </h3>
+        
+        <form>
+
+          <div>
+            <label for="color-name-input">Color Name:</label>
+            <input type="text" id="color-name-input"
+              name="color-name" value="" />
+          </div>
+
+          <div>
+            <label for="color-hexcode-input">Color Hexcode:</label>
+            <input type="text" id="color-hexcode-input"
+              name="color-hexcode" value="" />
+          </div>
+
+          <button>Add Color</button>
+
+        </form>
       </section>
     </>
   );
