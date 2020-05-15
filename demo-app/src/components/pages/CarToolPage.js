@@ -1,51 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { SectionHeader } from '../blocks/SectionHeader';
+import { CarTable } from '../car-tool/CarTable';
+import { CarForm } from '../car-tool/CarForm';
 
 import toolPageStyles from './ToolPage.module.css';
-import carToolPageStyles from './CarToolPage.module.css';
 
-const HeaderCell = ({ children }) => 
-  <th className={carToolPageStyles.carTableHeaderCell}>{children}</th>
+export const CarToolPage = ({ cars: initialCars }) => {
 
-const DataCell = ({ children }) => 
-  <td className={carToolPageStyles.carTableDataCell}>{children}</td>
+  const [ cars, setCars ] = useState(initialCars);
 
+  const addCar = car => {
+    setCars(cars.concat({
+      ...car,
+      id: Math.max(...cars.map(c => c.id), 0) + 1,
+    }));
+  };
 
-export const CarToolPage = ({ cars }) => {
+  const deleteCar = carId => {
+    setCars(cars.filter(c => c.id !== carId));
+  };
 
   return (
     <>
       <SectionHeader headerText="Color Tool" />
+      
       <section>
         <h3 className={toolPageStyles.contentSectionHeader}>
           Car Table
         </h3>
 
-        <table>
-            <thead>
-              <tr>
-                <HeaderCell>Id</HeaderCell>
-                <HeaderCell>Make</HeaderCell>
-                <HeaderCell>Model</HeaderCell>
-                <HeaderCell>Year</HeaderCell>
-                <HeaderCell>Color</HeaderCell>
-                <HeaderCell>Price</HeaderCell>
-              </tr>
-            </thead>
-            <tbody>
-              {cars.map(car => <tr key={car.id}>
-                <DataCell>{car.id}</DataCell>
-                <DataCell>{car.make}</DataCell>
-                <DataCell>{car.model}</DataCell>
-                <DataCell>{car.year}</DataCell>
-                <DataCell>{car.color}</DataCell>
-                <DataCell>{car.price}</DataCell>
-              </tr>)}
-            </tbody>
-          </table>
+        <CarTable cars={cars} onDeleteCar={deleteCar} />
       </section>
 
+      <section>
+        <h3 className={toolPageStyles.contentSectionHeader}>
+          Car Form
+        </h3>
+
+        <CarForm buttonText="Add Car" onSubmitCar={addCar} />
+      </section>
     </>
   );
 

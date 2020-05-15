@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { SectionHeader } from '../blocks/SectionHeader';
-import { ColorForm } from '../ColorForm';
+import { ColorForm } from '../color-tool/ColorForm';
 
 import toolPageStyles from './ToolPage.module.css';
 import colorToolPageStyles from './ColorToolPage.module.css';
