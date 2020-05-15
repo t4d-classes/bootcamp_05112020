@@ -73,27 +73,27 @@
 
 // doIt((x, y) => x + y);
 
-// const nums = [1,2,3,4,5];
+const nums = [1,2,3,4,5];
 
-// Array.prototype.map = function(transformFn) {
+Array.prototype.map = function(transformFn) {
 
-//   console.log('run my hacked version');
+  console.log('run my hacked version');
 
-  // const newArray = [];
+  const newArray = [];
 
-  // for (let x=0; x<this.length; x++) {
-  //   newArray.push(transformFn(this[x]));
-  // }
+  for (let x=0; x<this.length; x++) {
+    newArray.push(transformFn(this[x]));
+  }
 
-  // return newArray;
+  return newArray;
 
-// };
+};
 
 
 
-// const doubleNums = nums.map((x) => {
-//   return x * 2;
-// });
+const doubleNums = nums.map((x) => {
+  return x * 2;
+});
 
 // console.log(nums);
 // console.log(doubleNums);

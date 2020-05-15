@@ -2,7 +2,7 @@ import React from 'react';
 
 import { DataCell } from './misc';
 
-export const CarViewRow = ({ car, onDeleteCar: deleteCar }) => {
+export const CarViewRow = ({ car, onEditCar: editCar, onDeleteCar: deleteCar }) => {
 
   return (
     <tr>
@@ -13,6 +13,9 @@ export const CarViewRow = ({ car, onDeleteCar: deleteCar }) => {
       <DataCell>{car.color}</DataCell>
       <DataCell>{car.price}</DataCell>
       <DataCell>
+        <button type="button" onClick={() => editCar(car.id)}>
+          Edit
+        </button>
         <button type="button" onClick={() => deleteCar(car.id)}>
           Delete
         </button>

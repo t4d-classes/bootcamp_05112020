@@ -2,8 +2,14 @@ import React from 'react';
 
 import { HeaderCell } from './misc';
 import { CarViewRow } from './CarViewRow';
+import { CarEditRow } from './CarEditRow';
 
-export const CarTable = ({ cars, onDeleteCar: deleteCar }) => {
+export const CarTable = (
+  {
+    cars, editCarId,
+    onEditCar: editCar, onDeleteCar: deleteCar,
+    onSaveCar: saveCar, onCancelCar: cancelCar,
+  }) => {
 
   return (
     <table>
@@ -19,8 +25,9 @@ export const CarTable = ({ cars, onDeleteCar: deleteCar }) => {
         </tr>
       </thead>
       <tbody>
-        {cars.map(car =>
-          <CarViewRow key={car.id} car={car} onDeleteCar={deleteCar} />)}
+        {cars.map(car => editCarId === car.id
+          ? <CarEditRow key={car.id} car={car} onSaveCar={saveCar} onCancelCar={cancelCar} />
+          : <CarViewRow key={car.id} car={car} onEditCar={editCar} onDeleteCar={deleteCar} />)}
       </tbody>
     </table>
   );
