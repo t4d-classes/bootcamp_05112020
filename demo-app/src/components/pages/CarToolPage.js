@@ -18,6 +18,7 @@ export const CarToolPage = ({ cars: initialCars }) => {
   };
 
   const deleteCar = carId => {
+    console.log('delete car: ', carId);
     setCars(cars.filter(c => c.id !== carId));
   };
 
@@ -30,7 +31,7 @@ export const CarToolPage = ({ cars: initialCars }) => {
           Car Table
         </h3>
 
-        <CarTable cars={cars} onDeleteCar={deleteCar} />
+        <CarTable cars={cars} onDeleteCar={deleteCar}  />
       </section>
 
       <section>

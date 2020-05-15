@@ -3,7 +3,7 @@ import React from 'react';
 import { HeaderCell } from './misc';
 import { CarViewRow } from './CarViewRow';
 
-export const CarTable = ({ cars, onDeleteCar }) => {
+export const CarTable = ({ cars, onDeleteCar: deleteCar }) => {
 
   return (
     <table>
@@ -19,7 +19,8 @@ export const CarTable = ({ cars, onDeleteCar }) => {
         </tr>
       </thead>
       <tbody>
-        {cars.map(car => <CarViewRow key={car.id} car={car} onDeleteCar={onDeleteCar} />)}
+        {cars.map(car =>
+          <CarViewRow key={car.id} car={car} onDeleteCar={deleteCar} />)}
       </tbody>
     </table>
   );
