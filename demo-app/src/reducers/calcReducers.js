@@ -5,18 +5,20 @@ import {
   MULTIPLY_ACTION, DIVIDE_ACTION,
 } from '../actions/calcActions';
 
-export const resultReducer = (state = 0, action) => {
+// new state = reducerFn(current state, action)
+
+export const resultReducer = (result = 0, action) => {
   switch (action.type) {
     case ADD_ACTION:
-      return state + action.value;
+      return result + action.value;
     case SUBTRACT_ACTION:
-      return state - action.value;
+      return result - action.value;
     case MULTIPLY_ACTION:
-      return state * action.value;
+      return result * action.value;
     case DIVIDE_ACTION:
-      return state / action.value;
+      return result / action.value;
     default:
-      return state;
+      return result;
   }
 };
 
@@ -37,14 +39,14 @@ const getOperator = (actionType) => {
 
 };
 
-export const historyReducer = (state = [], action) => {
+export const historyReducer = (history = [], action) => {
   if ([ADD_ACTION, SUBTRACT_ACTION, MULTIPLY_ACTION, DIVIDE_ACTION].includes(action.type)) {
-    return state.concat({
+    return history.concat({
       opName: getOperator(action.type),
       opValue: action.value,
     });
   } else {
-    return state;
+    return history;
   }
 };
 
