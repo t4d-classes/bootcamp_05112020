@@ -13,6 +13,8 @@ import { useForm } from './hooks/useForm';
 
 const CalcTool = ({
                     result, history,
+                    addCount, subtractCount,
+                    multiplyCount, divideCount,
                     onAdd, onSubtract,
                     onMultiply, onDivide,
                     onClear, onDeleteEntry,
@@ -46,30 +48,84 @@ const CalcTool = ({
         <button type="button" onClick={() => onDeleteEntry(i)}>X</button>
       </li>)}
     </ul>
+    <table>
+      <thead>
+        <tr>
+          <th>
+            +
+          </th>
+          <th>
+            -
+          </th>
+          <th>
+            *
+          </th>
+          <th>
+            /
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            {addCount}
+          </td>
+          <td>
+            {subtractCount}
+          </td>
+          <td>
+            {multiplyCount}
+          </td>
+          <td>
+            {divideCount}
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </form>;
 
 };
 
 const CalcToolContainer = () => {
 
-  const result = useSelector(state => {
+  const computedProps = useSelector(state => {
 
-    return state.history.reduce( (result, entry) => {
-      
+    return state.history.reduce( (acc, entry) => {
+
       switch (entry.opName) {
         case '+':
-          return result + entry.opValue;
+          return {
+            ...acc,
+            result: acc.result + entry.opValue,
+            addCount: acc.addCount + 1,
+          };
         case '-':
-          return result - entry.opValue;
+          return {
+            ...acc,
+            result: acc.result - entry.opValue,
+            subtractCount: acc.subtractCount + 1,
+          };
         case '*':
-          return result * entry.opValue;
+          return {
+            ...acc,
+            result: acc.result * entry.opValue,
+            multiplyCount: acc.multiplyCount + 1,
+          };
         case '/':
-          return result / entry.opValue;
+          return {
+            ...acc,
+            result: acc.result / entry.opValue,
+            divideCount: acc.divideCount + 1,
+          };
         default:
-          return result;
+          return acc;
       }
       
-    }, 0 /* initial value of result */);
+    }, {
+      result:0,
+      addCount:0, subtractCount:0,
+      multiplyCount:0, divideCount:0,
+    } /* initial value of result */);
 
   });
 
@@ -113,7 +169,7 @@ const CalcToolContainer = () => {
   const doClear = () => dispatch(createClearAction());
   const doCreateDeleteEntryAction = (entryIndex) => dispatch(createDeleteEntryAction(entryIndex));
 
-  return <CalcTool result={result} history={history}
+  return <CalcTool history={history} {...computedProps}
                    onAdd={doAdd} onSubtract={doSubtract}
                    onMultiply={doMultiply} onDivide={doDivide}
                    onClear={doClear} onDeleteEntry={doCreateDeleteEntryAction} />;
