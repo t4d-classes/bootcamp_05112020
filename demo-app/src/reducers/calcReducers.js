@@ -8,22 +8,22 @@ import {
 
 // new state = reducerFn(current state, action)
 
-export const resultReducer = (result = 0, action) => {
-  switch (action.type) {
-    case ADD_ACTION:
-      return result + action.value;
-    case SUBTRACT_ACTION:
-      return result - action.value;
-    case MULTIPLY_ACTION:
-      return result * action.value;
-    case DIVIDE_ACTION:
-      return result / action.value;
-    case CLEAR_ACTION:
-      return 0;
-    default:
-      return result;
-  }
-};
+// export const resultReducer = (result = 0, action) => {
+//   switch (action.type) {
+//     case ADD_ACTION:
+//       return result + action.value;
+//     case SUBTRACT_ACTION:
+//       return result - action.value;
+//     case MULTIPLY_ACTION:
+//       return result * action.value;
+//     case DIVIDE_ACTION:
+//       return result / action.value;
+//     case CLEAR_ACTION:
+//       return 0;
+//     default:
+//       return result;
+//   }
+// };
 
 const getOperator = (actionType) => {
 
@@ -66,6 +66,6 @@ export const historyReducer = (history = [], action) => {
 // };
 
 export const calcReducer = combineReducers({
-  result: resultReducer,
+  // result: resultReducer,
   history: historyReducer,
 });

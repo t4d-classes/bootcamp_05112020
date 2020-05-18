@@ -52,7 +52,56 @@ const CalcTool = ({
 
 const CalcToolContainer = () => {
 
-  const result = useSelector(state => state.result);
+  const result = useSelector(state => {
+
+    return state.history.reduce( (result, entry) => {
+      
+      switch (entry.opName) {
+        case '+':
+          return result + entry.opValue;
+        case '-':
+          return result - entry.opValue;
+        case '*':
+          return result * entry.opValue;
+        case '/':
+          return result / entry.opValue;
+        default:
+          return result;
+      }
+      
+    }, 0 /* initial value of result */);
+
+  });
+
+  // const result = useSelector(state => {
+
+  //   let result = 0;
+
+  //   state.history.forEach(entry => {
+
+  //     switch (entry.opName) {
+  //       case '+':
+  //         result += entry.opValue;
+  //         break;
+  //       case '-':
+  //         result -= entry.opValue;
+  //         break;
+  //       case '*':
+  //         result *= entry.opValue;
+  //         break;
+  //       case '/':
+  //         result /= entry.opValue;
+  //         break;
+  //       default:
+  //         break;
+  //     }
+  //   });
+
+  //   return result;
+
+  // });
+
+
   const history = useSelector(state => state.history);
 
   const dispatch = useDispatch();
