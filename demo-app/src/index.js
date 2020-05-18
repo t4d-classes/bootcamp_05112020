@@ -6,7 +6,7 @@ import { calcStore } from './stores/calcStore';
 import {
   createAddAction, createSubtractAction,
   createMultiplyAction, createDivideAction,
-  createClearAction,
+  createClearAction, createDeleteEntryAction
 } from './actions/calcActions';
 
 import { useForm } from './hooks/useForm';
@@ -15,7 +15,7 @@ const CalcTool = ({
                     result, history,
                     onAdd, onSubtract,
                     onMultiply, onDivide,
-                    onClear,
+                    onClear, onDeleteEntry,
                   }) => {
 
   const [ calcForm, change, resetCalcForm ] = useForm({ num: 0 });
@@ -41,7 +41,10 @@ const CalcTool = ({
       <button type="button" onClick={clear}>Clear</button>
     </div>
     <ul>
-      {history.map( (entry, i) => <li key={i}>{entry.opName}{entry.opValue}</li>)}
+      {history.map( (entry, i) => <li key={i}>
+        {entry.opName} {entry.opValue}
+        <button type="button" onClick={() => onDeleteEntry(i)}>X</button>
+      </li>)}
     </ul>
   </form>;
 
@@ -59,11 +62,12 @@ const CalcToolContainer = () => {
   const doMultiply = value => dispatch(createMultiplyAction(value));
   const doDivide = value => dispatch(createDivideAction(value));
   const doClear = () => dispatch(createClearAction());
+  const doCreateDeleteEntryAction = (entryIndex) => dispatch(createDeleteEntryAction(entryIndex));
 
   return <CalcTool result={result} history={history}
                    onAdd={doAdd} onSubtract={doSubtract}
                    onMultiply={doMultiply} onDivide={doDivide}
-                   onClear={doClear} />;
+                   onClear={doClear} onDeleteEntry={doCreateDeleteEntryAction} />;
 };
 
 ReactDOM.render(
