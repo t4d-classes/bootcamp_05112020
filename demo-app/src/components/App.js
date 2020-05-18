@@ -1,8 +1,10 @@
 import React from 'react';
-
+import { Provider } from 'react-redux';
 import {
   Switch, Route,
 } from 'react-router-dom';
+
+import { carStore } from '../stores/carStore';
 
 import { PageLayout } from './blocks/PageLayout';
 import { PageHeader } from './PageHeader';
@@ -13,17 +15,12 @@ import { Sidebar } from './blocks/Sidebar';
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { ColorToolPage } from './pages/ColorToolPage';
-import { CarToolPage } from './pages/CarToolPage';
+import { CarToolPageContainer } from './containers/CarToolPageContainer';
 
 const colorList = [
   { id: 1, name: 'red', hexcode: '#FF0000' },
   { id: 2, name: 'green', hexcode: '#00FF00' },
   { id: 3, name: 'blue', hexcode: '#0000FF' },
-];
-
-const carList = [
-  { id: 1, make: 'Ford', model: 'Fusion Hybrid', year: 2020, color: 'blue', price: 45000 },
-  { id: 2, make: 'Tesla', model: 'S', year: 2019, color: 'red', price: 125000 },
 ];
 
 export const App = () => {
@@ -44,7 +41,9 @@ export const App = () => {
               <ColorToolPage colors={colorList} />
             </Route>
             <Route path="/car-tool">
-              <CarToolPage cars={carList} />
+              <Provider store={carStore}>
+                <CarToolPageContainer />
+              </Provider>
             </Route>
           </Switch>
         </Content>
