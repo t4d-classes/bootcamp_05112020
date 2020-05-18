@@ -3,6 +3,7 @@ import { combineReducers } from 'redux';
 import {
   ADD_ACTION, SUBTRACT_ACTION,
   MULTIPLY_ACTION, DIVIDE_ACTION,
+  CLEAR_ACTION,
 } from '../actions/calcActions';
 
 // new state = reducerFn(current state, action)
@@ -17,6 +18,8 @@ export const resultReducer = (result = 0, action) => {
       return result * action.value;
     case DIVIDE_ACTION:
       return result / action.value;
+    case CLEAR_ACTION:
+      return 0;
     default:
       return result;
   }
@@ -45,7 +48,9 @@ export const historyReducer = (history = [], action) => {
       opName: getOperator(action.type),
       opValue: action.value,
     });
-  } else {
+  } else if (action.type === CLEAR_ACTION) {
+    return [];
+  }else {
     return history;
   }
 };
