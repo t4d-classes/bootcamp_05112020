@@ -33,3 +33,57 @@
 
 </script> -->
 
+
+<!-- <script>
+
+  'use strict';
+
+  // pyramid of doom
+  setTimeout(() => {
+      console.log('a');
+
+      setTimeout(() => {
+          console.log('b');
+
+          setTimeout(() => {
+              console.log('c');
+          }, 500);
+
+      }, 1000);
+  
+  }, 2000);
+
+
+
+</script> -->
+
+<script>
+
+  'use strict';
+
+  // run the all done function, after all three setTimeout have completed
+  // - you may not change the delay values (assume they are random)
+  // - you may not wrap the allDone in a setTimeout with value large the
+  // other delays
+  // - all three setTimeout function calls must invoked in the same task
+
+  const allDone = () => {
+    console.log('all done!');
+  };
+
+  setTimeout(() => {
+    console.log('a');
+  }, 2000);
+
+  setTimeout(() => {
+    console.log('b');
+  }, 500);
+
+  setTimeout(() => {
+    console.log('c');
+  }, 1000);
+  
+</script>
+
+
+
