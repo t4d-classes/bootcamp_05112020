@@ -142,11 +142,14 @@
   console.log('young man poses the question');
 
   const youngMan = new Promise(function youngLady(resolve, reject) {
+    
     console.log('young lady is diligently considering his request...');
+    
     setTimeout(function sheDecides() {
       console.log('she says yes to the dress but with young man\'s best friend');
       reject('no, she fell in love with his best friend');
     }, 2000);
+  
   });
 
   youngMan
@@ -174,6 +177,11 @@
 
   xhr.open('GET', 'http://localhost:3060/colors');
   xhr.send();
+
+  // create a new function named 'myFetch', the new function should work according to the example below
+  // use the XHR example above to make the REST API call
+
+  myFetch('http://localhost:3060/colors').then(colors => console.log(colors));
 
 
 </script>
