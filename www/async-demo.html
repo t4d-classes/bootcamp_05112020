@@ -139,24 +139,62 @@
   }
   */
 
-  console.log('young man poses the question');
+  /*
+  const popTheQuestion = () => {
+    return new Promise(function youngLady(resolve, reject) {
+    
+      console.log('young lady is diligently considering his request...');
+      
+      setTimeout(function sheDecides() {
+        console.log('she says yes to the dress');
+        resolve('the young man is love of her life!');
+      }, 2000);
+    
+    })
+  };
 
-  const youngMan = new Promise(function youngLady(resolve, reject) {
-    
-    console.log('young lady is diligently considering his request...');
-    
-    setTimeout(function sheDecides() {
-      console.log('she says yes to the dress');
-      resolve('the young man is love of her life!');
-    }, 2000);
-  
-  });
+  const findSomeClothes = (result) => {
+    console.log(result);
+    console.log('yay! I am getting married!');
+    console.log('we need to find some wedding clothes');
+    return new Promise(resolve => {
+
+      setTimeout(() => {
+        resolve('found some wedding clothes');
+      }, 2000);
+
+    });
+  };
+
+  const findALocation = (result) => {
+    console.log(result);
+    console.log('find a place to declare our love...');
+    return new Promise(resolve => {
+
+      setTimeout(() => {
+        resolve('found a place');
+      }, 2000);
+
+    });
+  };
+
+
+  popTheQuestion()
+    .then((result) => findSomeClothes(result))
+    .then((result) => findALocation(result))
+    .then(result => console.log(result));
+
+    */
+
+/*
+    console.log('young man poses the question');
+
+  const youngMan = ;
 
   youngMan
     .then(function heIsHappy(result) {
       console.log(result);
       console.log('yay! I am getting married!');
-
       console.log('we need to find some wedding clothes');
       return new Promise(resolve => {
 
@@ -220,6 +258,72 @@
   myFetch('http://localhost:3060/colors').then(colors => console.log(colors));
 
   */
+
+
+</script>
+
+<script>
+
+  'use strict';
+
+  /*
+  const p = new Promise(resolve => {
+    setTimeout(() => {
+      resolve('a');
+    }, 2000);
+  });
+  */
+
+  /* 
+  const p1 = new Promise(resolve => setTimeout(() => resolve('a'), 2000));
+  const p2 = new Promise(resolve => setTimeout(() => resolve('b'), 4000));
+  const p3 = new Promise(resolve => setTimeout(() => resolve('c'), 6000));
+  const p4 = new Promise(resolve => setTimeout(() => resolve('d'), 8000));
+
+  p1.then(result => console.log(result + ' done'));
+  p2.then(result => console.log(result + ' done'));
+  p3.then(result => console.log(result + ' done'));
+  p4.then(result => console.log(result + ' done'));
+
+  Promise.all([ p1, p2, p3, p4 ]).then(results => {
+    console.log('all done');
+    console.log(results);
+  });
+
+  */
+
+</script>
+
+<script>
+
+  /*
+  const addColor = (color) => {
+
+    return fetch('http://localhost:3060/colors', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(color),
+    })
+      .then(() => fetch('http://localhost:3060/colors'))
+      .then(res => res.json());
+  };
+  */
+
+  const addColor = async (color) => {
+
+    await fetch('http://localhost:3060/colors', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(color),
+    });
+
+    const res = await fetch('http://localhost:3060/colors');
+
+    return res.json();
+  };
+
+  addColor({ name: 'purple', hexcode: '#FF00FF' })
+    .then(colors => console.log(colors));
 
 
 </script>
