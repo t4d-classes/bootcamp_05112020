@@ -57,7 +57,7 @@
 
 </script> -->
 
-<script>
+<!-- <script>
 
   'use strict';
 
@@ -71,19 +71,109 @@
     console.log('all done!');
   };
 
+  let t = 0;
+
+  t++;
   setTimeout(() => {
     console.log('a');
-  }, 2000);
+    t--;
+    if (t === 0) {
+      allDone();
+    }
+  }, 1000);
 
+  t++;
   setTimeout(() => {
     console.log('b');
-  }, 500);
+    t--;
+    if (t === 0) {
+      allDone();
+    }
+  }, 2000);
 
+  t++;
   setTimeout(() => {
     console.log('c');
-  }, 1000);
+    t--;
+    if (t === 0) {
+      allDone();
+    }
+  }, 500);
   
+</script> -->
+
+
+
+
+
+<script>
+
+  'use strict';
+
+
+  /*
+  class Promise {
+
+    constructor(fn) {
+
+      this.resolveFns = [];
+      this.rejectFns = [];
+
+      const resolveFn = (data) => {
+        this.resolveFns.forEach(resolveFn => resolveFn(data));
+      }
+
+      const rejectFn = (data) => {
+        this.rejectFns.forEach(rejectFn => rejectFn(data));
+      }
+
+      fn(resolveFn, rejectFn);
+    }
+
+    then(fn) {
+      this.resolveFns.push(fn);
+    }
+    catch(fn) {
+      this.rejectFns.push(fn);
+    }
+  }
+  */
+  /*
+  console.log('young man poses the question');
+
+  const youngMan = new Promise(function youngLady(resolve, reject) {
+    console.log('young lady is diligently considering his request...');
+    setTimeout(function sheDecides() {
+      console.log('she says yes to the dress but with young man\'s best friend');
+      reject('no, she fell in love with his best friend');
+    }, 2000);
+  });
+
+  youngMan
+    .then(function heIsHappy(result) {
+      console.log(result);
+      console.log('yay! I am getting married!');
+    })
+    .catch(function heIsNotHappy(result) {
+      console.log(result);
+      console.log('time to find a new friend...');
+    });
+
+  console.log('young man is waiting...');
+  */
+
+  const xhr = new XMLHttpRequest();
+
+  xhr.addEventListener('readystatechange', () => {
+
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      console.log(JSON.parse(xhr.responseText));
+    }
+
+  });
+
+  xhr.open('GET', 'http://localhost:3060/colors');
+  xhr.send();
+
+
 </script>
-
-
-
