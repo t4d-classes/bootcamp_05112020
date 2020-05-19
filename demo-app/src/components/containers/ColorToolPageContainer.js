@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { useSelector, useDispatch } from 'react-redux';
 
 import {
-  createAddColorAction, createDeleteColorAction,
+  addColor, deleteColor,
   refreshColors,
 } from '../../actions/colorActions';
 
@@ -14,8 +14,8 @@ export const ColorToolPageContainer = () => {
   const colors = useSelector(state => state);
 
   const dispatchProps = bindActionCreators({
-    onAddColor: createAddColorAction,
-    onDeleteColor: createDeleteColorAction,
+    onAddColor: addColor,
+    onDeleteColor: deleteColor,
     onRefreshColors: refreshColors,
   }, useDispatch());
 
