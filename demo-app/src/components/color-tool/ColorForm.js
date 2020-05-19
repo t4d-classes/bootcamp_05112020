@@ -8,13 +8,9 @@ export const ColorForm = ({ buttonText, onSubmitColor }) => {
     name: '', hexcode: '',
   });
 
-
   const submitColor = () => {
-
     onSubmitColor({ ...colorForm });
-
     resetColorForm();
-
   };
 
   console.log(colorForm);

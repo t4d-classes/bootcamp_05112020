@@ -4,7 +4,9 @@ import {
   Switch, Route,
 } from 'react-router-dom';
 
+import { colorStore } from '../stores/colorStore';
 import { carStore } from '../stores/carStore';
+import { calcStore } from '../stores/calcStore';
 
 import { PageLayout } from './blocks/PageLayout';
 import { PageHeader } from './PageHeader';
@@ -14,14 +16,10 @@ import { Content } from './blocks/Content';
 import { Sidebar } from './blocks/Sidebar';
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
-import { ColorToolPage } from './pages/ColorToolPage';
+import { ColorToolPageContainer } from './containers/ColorToolPageContainer';
 import { CarToolPageContainer } from './containers/CarToolPageContainer';
+import { CalcToolPageContainer } from './containers/CalcToolPageContainer';
 
-const colorList = [
-  { id: 1, name: 'red', hexcode: '#FF0000' },
-  { id: 2, name: 'green', hexcode: '#00FF00' },
-  { id: 3, name: 'blue', hexcode: '#0000FF' },
-];
 
 export const App = () => {
 
@@ -38,11 +36,18 @@ export const App = () => {
               <AboutPage />
             </Route>
             <Route path="/color-tool">
-              <ColorToolPage colors={colorList} />
+              <Provider store={colorStore}>
+                <ColorToolPageContainer />
+              </Provider>
             </Route>
             <Route path="/car-tool">
               <Provider store={carStore}>
                 <CarToolPageContainer />
+              </Provider>
+            </Route>
+            <Route path="/calc-tool">
+              <Provider store={calcStore}>
+                <CalcToolPageContainer />
               </Provider>
             </Route>
           </Switch>

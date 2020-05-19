@@ -11,6 +11,7 @@ export const MainMenu = () => {
     { id: 2, url: '/about', caption: 'About' },
     { id: 3, url: '/color-tool', caption: 'Color Tool' },
     { id: 4, url: '/car-tool', caption: 'Car Tool' },
+    { id: 5, url: '/calc-tool', caption: 'Calc Tool' },
   ];
 
   return (
