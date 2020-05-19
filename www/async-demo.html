@@ -138,7 +138,7 @@
     }
   }
   */
-  /*
+
   console.log('young man poses the question');
 
   const youngMan = new Promise(function youngLady(resolve, reject) {
@@ -146,8 +146,8 @@
     console.log('young lady is diligently considering his request...');
     
     setTimeout(function sheDecides() {
-      console.log('she says yes to the dress but with young man\'s best friend');
-      reject('no, she fell in love with his best friend');
+      console.log('she says yes to the dress');
+      resolve('the young man is love of her life!');
     }, 2000);
   
   });
@@ -156,6 +156,33 @@
     .then(function heIsHappy(result) {
       console.log(result);
       console.log('yay! I am getting married!');
+
+      console.log('we need to find some wedding clothes');
+      return new Promise(resolve => {
+
+        setTimeout(() => {
+          resolve('found some wedding clothes');
+        }, 2000);
+
+      });
+
+    })
+    .then(result => {
+
+      console.log(result);
+      console.log('find a place to declare our love...');
+      return new Promise(resolve => {
+
+        setTimeout(() => {
+          resolve('found a place');
+        }, 2000);
+
+      });
+
+    })
+    .then(result => {
+
+      console.log(result);
     })
     .catch(function heIsNotHappy(result) {
       console.log(result);
@@ -163,25 +190,36 @@
     });
 
   console.log('young man is waiting...');
-  */
 
-  const xhr = new XMLHttpRequest();
+  /*
 
-  xhr.addEventListener('readystatechange', () => {
+  const myFetch = (url) => {
 
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      console.log(JSON.parse(xhr.responseText));
-    }
+    return new Promise(resolve => {
 
-  });
+      const xhr = new XMLHttpRequest();
 
-  xhr.open('GET', 'http://localhost:3060/colors');
-  xhr.send();
+      xhr.addEventListener('readystatechange', () => {
+    
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          resolve(JSON.parse(xhr.responseText));
+        }
+    
+      });
+    
+      xhr.open('GET', url);
+      xhr.send();
+
+    });
+
+  };
 
   // create a new function named 'myFetch', the new function should work according to the example below
   // use the XHR example above to make the REST API call
 
   myFetch('http://localhost:3060/colors').then(colors => console.log(colors));
+
+  */
 
 
 </script>
