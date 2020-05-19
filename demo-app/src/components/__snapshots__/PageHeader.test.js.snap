@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PageHeader /> Enzyme Static HTML <PageHeader /> renders 1`] = `"\\"<h1><div>Cool Company, Inc.</div></h1>\\""`;
