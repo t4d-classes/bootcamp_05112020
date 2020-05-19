@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { SectionHeader } from '../blocks/SectionHeader';
 import { ContentSection } from '../blocks/ContentSection';
@@ -9,7 +9,14 @@ export const ColorToolPage = ({
   colors,
   onAddColor: addColor,
   onDeleteColor: deleteColor,
+  onRefreshColors: refreshColors,
 }) => {
+
+  useEffect(() => {
+
+    refreshColors();
+
+  }, []);
 
   return (
     <>
