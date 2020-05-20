@@ -7,8 +7,17 @@ export const typeDefs = `
     cars: [Car]
   }
 
+  type Mutation {
+    appendColor(color: AppendColor): Color
+  }
+
   type Color {
     id: ID
+    name: String
+    hexcode: String
+  }
+
+  input AppendColor {
     name: String
     hexcode: String
   }

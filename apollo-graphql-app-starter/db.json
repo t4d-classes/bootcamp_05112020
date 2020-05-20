@@ -14,6 +14,11 @@
       "id": 3,
       "name": "blue",
       "hexcode": "#0000ff"
+    },
+    {
+      "name": "purple",
+      "hexcode": "#ff00ff",
+      "id": 4
     }
   ],
   "cars": [
@@ -23,7 +28,7 @@
       "model": "Fusion Hybrid",
       "year": 2018,
       "color": "black",
-      "price": 25000.50
+      "price": 25000.5
     },
     {
       "id": 2,

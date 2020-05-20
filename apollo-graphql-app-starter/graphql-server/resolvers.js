@@ -19,4 +19,15 @@ export const resolvers = {
         .then(res => res.json());
     },
   },
+  Mutation: {
+    appendColor: (_, args, context) => {
+
+      return fetch(`${context.restURL}/colors`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(args.color),
+      }).then(res => res.json());
+
+    },
+  },
 };
