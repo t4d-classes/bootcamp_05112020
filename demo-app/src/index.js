@@ -6,6 +6,8 @@ import {
 
 import { App } from './components/App';
 
+import './index.css';
+
 ReactDOM.render(
   <Router>
     <App />

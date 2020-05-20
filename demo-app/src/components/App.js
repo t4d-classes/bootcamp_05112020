@@ -5,19 +5,23 @@ import {
 } from 'react-router-dom';
 
 import { colorStore } from '../stores/colorStore';
-import { carStore } from '../stores/carStore';
+import { carStoreThunk } from '../stores/carStoreThunk';
+import { carStoreSaga } from '../stores/carStoreSaga';
+import { carStoreObservable } from '../stores/carStoreObservable';
 import { calcStore } from '../stores/calcStore';
 
 import { PageLayout } from './blocks/PageLayout';
-import { PageHeader } from './PageHeader';
-import { PageFooter } from './PageFooter';
-import { MainMenu } from './MainMenu';
+import { PageHeader } from './blocks/PageHeader';
+import { PageFooter } from './blocks/PageFooter';
+import { MainMenu } from './blocks/MainMenu';
 import { Content } from './blocks/Content';
 import { Sidebar } from './blocks/Sidebar';
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { ColorToolPageContainer } from './containers/ColorToolPageContainer';
-import { CarToolPageContainer } from './containers/CarToolPageContainer';
+import { CarToolThunkPageContainer } from './containers/CarToolThunkPageContainer';
+import { CarToolSagaPageContainer } from './containers/CarToolSagaPageContainer';
+import { CarToolObservablePageContainer } from './containers/CarToolObservablePageContainer';
 import { CalcToolPageContainer } from './containers/CalcToolPageContainer';
 
 
@@ -40,9 +44,19 @@ export const App = () => {
                 <ColorToolPageContainer />
               </Provider>
             </Route>
-            <Route path="/car-tool">
-              <Provider store={carStore}>
-                <CarToolPageContainer />
+            <Route path="/car-tool-thunk">
+              <Provider store={carStoreThunk}>
+                <CarToolThunkPageContainer />
+              </Provider>
+            </Route>
+            <Route path="/car-tool-saga">
+              <Provider store={carStoreSaga}>
+                <CarToolSagaPageContainer />
+              </Provider>
+            </Route>
+            <Route path="/car-tool-observable">
+              <Provider store={carStoreObservable}>
+                <CarToolObservablePageContainer />
               </Provider>
             </Route>
             <Route path="/calc-tool">

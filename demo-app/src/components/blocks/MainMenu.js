@@ -10,8 +10,10 @@ export const MainMenu = () => {
     { id: 1, url: '/', caption: 'Home' },
     { id: 2, url: '/about', caption: 'About' },
     { id: 3, url: '/color-tool', caption: 'Color Tool' },
-    { id: 4, url: '/car-tool', caption: 'Car Tool' },
-    { id: 5, url: '/calc-tool', caption: 'Calc Tool' },
+    { id: 4, url: '/car-tool-thunk', caption: 'Car Tool Thunk' },
+    { id: 5, url: '/car-tool-saga', caption: 'Car Tool Saga' },
+    { id: 6, url: '/car-tool-observable', caption: 'Car Tool Observable' },
+    { id: 7, url: '/calc-tool', caption: 'Calc Tool' },
   ];
 
   return (

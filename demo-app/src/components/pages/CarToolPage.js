@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { SectionHeader } from '../blocks/SectionHeader';
 import { ContentSection } from '../blocks/ContentSection';
@@ -7,13 +7,24 @@ import { CarForm } from '../car-tool/CarForm';
 
 export const CarToolPage = ({
   cars, editCarId,
-  onAddCar: addCar, onSaveCar: saveCar,
-  onDeleteCar: deleteCar, onEditCar: editCar,
-  onCancelCar: cancelCar }) => {
+  onRefreshCars: refreshCars,
+  onAddCar: addCar,
+  onSaveCar: saveCar,
+  onDeleteCar: deleteCar,
+  onEditCar: editCar,
+  onCancelCar: cancelCar,
+  headerText,
+}) => {
+
+  useEffect(() => {
+
+    refreshCars();
+
+  }, []);
 
   return (
     <>
-      <SectionHeader headerText="Color Tool" />
+      <SectionHeader headerText={headerText} />
       
       <ContentSection headerText="Car Table">
         <CarTable cars={cars} editCarId={editCarId}
