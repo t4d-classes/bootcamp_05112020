@@ -19,6 +19,11 @@
       "name": "purple",
       "hexcode": "#ff00ff",
       "id": 4
+    },
+    {
+      "name": "purple",
+      "hexcode": "#ff00ff",
+      "id": 5
     }
   ],
   "cars": [
