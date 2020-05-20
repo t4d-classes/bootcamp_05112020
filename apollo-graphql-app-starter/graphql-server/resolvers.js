@@ -5,10 +5,12 @@ export const resolvers = {
     message: () => 'Hello World!',
     favoriteNumber: () => 8,
     colors: (_1, _2, { restURL }) => {
-
       return fetch(`${restURL}/colors`)
         .then(res => res.json());
-
+    },
+    cars: (_1, _2, { restURL }) => {
+      return fetch(`${restURL}/cars`)
+        .then(res => res.json());
     },
   },
 };

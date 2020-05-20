@@ -4,7 +4,10 @@ import gql from 'graphql-tag';
 
 const APP_QUERY = gql`
   query AppQuery {
-    message
+    colors {
+      id
+      name
+    }
   }
 `;
 
@@ -18,6 +21,9 @@ export const App = () => {
     return <div>Error: {error}</div>;
   }
   return <>
-    <h1>{data.message}</h1>
+    <ul>
+      {data.colors.map(color =>
+        <li key={color.id}>{color.name}</li>)}
+    </ul>
   </>;
 };
