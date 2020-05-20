@@ -42,22 +42,6 @@
       "year": 2018,
       "color": "red",
       "price": 125000
-    },
-    {
-      "id": 3,
-      "make": "Nissan",
-      "model": "Pathfinder",
-      "year": 2018,
-      "color": "navy",
-      "price": 45000
-    },
-    {
-      "make": "a",
-      "model": "a",
-      "year": 1900,
-      "color": "a",
-      "price": 0,
-      "id": 4
     }
   ],
   "widgets": [

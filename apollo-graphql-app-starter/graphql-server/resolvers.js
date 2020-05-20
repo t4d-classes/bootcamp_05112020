@@ -56,7 +56,7 @@ export const resolvers = {
         .then(car => {
           return fetch(
             `${context.restURL}/cars/${encodeURIComponent(args.carId)}`,
-            { method: 'DELETE '},
+            { method: 'DELETE'},
           ).then(() => car);
         });
     },
