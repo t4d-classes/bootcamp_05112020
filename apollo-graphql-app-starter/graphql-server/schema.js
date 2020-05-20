@@ -3,6 +3,7 @@ export const typeDefs = `
     message: String
     favoriteNumber: Int
     colors: [Color]
+    color(colorId: ID): Color
     cars: [Car]
   }
 

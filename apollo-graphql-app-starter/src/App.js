@@ -2,11 +2,16 @@ import * as React from 'react';
 import { useQuery } from 'react-apollo';
 import gql from 'graphql-tag';
 
+import { CarTable } from './components/CarTable';
+
 const APP_QUERY = gql`
   query AppQuery {
     colors {
       id
       name
+    }
+    cars {
+      id make model year color price
     }
   }
 `;
@@ -25,5 +30,6 @@ export const App = () => {
       {data.colors.map(color =>
         <li key={color.id}>{color.name}</li>)}
     </ul>
+    <CarTable cars={data.cars} />
   </>;
 };

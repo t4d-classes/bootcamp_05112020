@@ -8,6 +8,12 @@ export const resolvers = {
       return fetch(`${restURL}/colors`)
         .then(res => res.json());
     },
+    color: (_, args, context) => {
+
+      return fetch(`${context.restURL}/colors/${encodeURIComponent(args.colorId)}`)
+        .then(res => res.json());
+
+    },
     cars: (_1, _2, { restURL }) => {
       return fetch(`${restURL}/cars`)
         .then(res => res.json());
