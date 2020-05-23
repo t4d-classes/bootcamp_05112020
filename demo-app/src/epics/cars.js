@@ -1,5 +1,5 @@
 import { ofType, combineEpics } from 'redux-observable';
-import { switchMap, map } from 'rxjs/operators';
+import { switchMap, map, mergeMap } from 'rxjs/operators';
 
 import {
   REFRESH_CARS_REQUEST_ACTION,
@@ -19,6 +19,7 @@ const refreshCarsEpic = action$ => {
 
   return action$.pipe(
     ofType(REFRESH_CARS_REQUEST_ACTION),
+    // take latest
     switchMap(() => carsAPI.refresh()),
     map(cars => createRefreshCarsDoneAction(cars)),
   ); 
@@ -30,7 +31,8 @@ const addCarEpic = action$ => {
 
   return action$.pipe(
     ofType(ADD_CAR_REQUEST_ACTION),
-    switchMap(({ car }) => carsAPI.append(car)),
+    // take every
+    mergeMap(({ car }) => carsAPI.append(car)),
     map(() => createRefreshCarsRequestAction()),
   ); 
 };
@@ -41,7 +43,7 @@ const saveCarEpic = action$ => {
 
   return action$.pipe(
     ofType(SAVE_CAR_REQUEST_ACTION),
-    switchMap(({ car }) => carsAPI.replace(car)),
+    mergeMap(({ car }) => carsAPI.replace(car)),
     map(() => createRefreshCarsRequestAction()),
   ); 
 };
@@ -52,7 +54,7 @@ const deleteCarEpic = action$ => {
 
   return action$.pipe(
     ofType(DELETE_CAR_REQUEST_ACTION),
-    switchMap(({ carId }) => carsAPI.remove(carId)),
+    mergeMap(({ carId }) => carsAPI.remove(carId)),
     map(() => createRefreshCarsRequestAction()),
   ); 
 };

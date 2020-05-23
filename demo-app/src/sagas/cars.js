@@ -11,27 +11,30 @@ import {
 
 import { CarsAPI } from '../services/cars-api';
 
+const carsAPI = new CarsAPI(process.env.REACT_APP_CARS_REST_API_URL);
+
+export const refreshCarsAPI = () => carsAPI.refresh();
+export const appendCarAPI = (...params) => carsAPI.append(...params);
+export const replaceCarAPI = (...params) => carsAPI.replace(...params);
+export const removeCarAPI = (...params) => carsAPI.remove(...params);
+
 export function* refreshCars() {
-  const carsAPI = new CarsAPI(process.env.REACT_APP_CARS_REST_API_URL);
-  const cars = yield call(() => carsAPI.refresh());
+  const cars = yield call(refreshCarsAPI);
   yield put(createRefreshCarsDoneAction(cars));
 }
 
 export function* appendCar(action) {
-  const carsAPI = new CarsAPI(process.env.REACT_APP_CARS_REST_API_URL);
-  yield call(() => carsAPI.append(action.car));
+  yield call(appendCarAPI, action.car);
   yield put(createRefreshCarsRequestAction());
 }
 
 export function* replaceCar(action) {
-  const carsAPI = new CarsAPI(process.env.REACT_APP_CARS_REST_API_URL);
-  yield call(() => carsAPI.replace(action.car));
+  yield call(replaceCarAPI, action.car);
   yield put(createRefreshCarsRequestAction());
 }
 
 export function* deleteCar(action) {
-  const carsAPI = new CarsAPI(process.env.REACT_APP_CARS_REST_API_URL);
-  yield call(() => carsAPI.remove(action.carId));
+  yield call(removeCarAPI, action.carId);
   yield put(createRefreshCarsRequestAction());
 }
 

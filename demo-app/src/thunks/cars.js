@@ -11,15 +11,10 @@ import { CarsAPI } from '../services/cars-api';
 export const refreshCars = () => {
 
   return async dispatch => {
-
     const carsAPI = new CarsAPI(process.env.REACT_APP_CARS_REST_API_URL);
-
     dispatch(createRefreshCarsRequestAction());
-
     const cars =  await carsAPI.refresh();
-
     dispatch(createRefreshCarsDoneAction(cars));
-
   };
 
 };

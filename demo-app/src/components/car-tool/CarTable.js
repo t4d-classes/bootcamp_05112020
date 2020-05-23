@@ -24,10 +24,21 @@ export const CarTable = (
           <HeaderCell>Action</HeaderCell>
         </tr>
       </thead>
-      <tbody>
+      {/* <tbody>
         {cars.map(car => editCarId === car.id
           ? <CarEditRow key={car.id} car={car} onSaveCar={saveCar} onCancelCar={cancelCar} />
           : <CarViewRow key={car.id} car={car} onEditCar={editCar} onDeleteCar={deleteCar} />)}
+      </tbody> */}
+      <tbody>
+        {cars.map(car => {
+          
+          if(editCarId === car.id) {
+            return <CarEditRow key={car.id} car={car} onSaveCar={saveCar} onCancelCar={cancelCar} />;
+          } else {
+            return <CarViewRow key={car.id} car={car} onEditCar={editCar} onDeleteCar={deleteCar} />;
+          }
+          
+        })}
       </tbody>
     </table>
   );
